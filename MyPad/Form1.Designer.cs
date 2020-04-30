@@ -42,11 +42,13 @@
             this.formatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundColourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.foregroundColourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.fontDialog = new System.Windows.Forms.FontDialog();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
-            this.foregroundColourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontScrollBar = new System.Windows.Forms.HScrollBar();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -119,7 +121,7 @@
             // 
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
             this.cutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.cutToolStripMenuItem.Text = "Cut";
             this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutItems);
             // 
@@ -127,7 +129,7 @@
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             this.copyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.copyToolStripMenuItem.Text = "Copy";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyItems);
             // 
@@ -135,7 +137,7 @@
             // 
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
             this.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.pasteToolStripMenuItem.Text = "Paste";
             this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteItems);
             // 
@@ -143,7 +145,7 @@
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
             this.undoToolStripMenuItem.Text = "Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoItems);
             // 
@@ -174,10 +176,6 @@
             this.backgroundColourToolStripMenuItem.Text = "Background Colour";
             this.backgroundColourToolStripMenuItem.Click += new System.EventHandler(this.changeBackground);
             // 
-            // openFileDialog
-            // 
-            this.openFileDialog.FileName = "openFileDialog";
-            // 
             // foregroundColourToolStripMenuItem
             // 
             this.foregroundColourToolStripMenuItem.Name = "foregroundColourToolStripMenuItem";
@@ -185,13 +183,40 @@
             | System.Windows.Forms.Keys.F)));
             this.foregroundColourToolStripMenuItem.Size = new System.Drawing.Size(310, 26);
             this.foregroundColourToolStripMenuItem.Text = "Foreground Colour";
-            this.foregroundColourToolStripMenuItem.Click += new System.EventHandler(this.foregroundColourToolStripMenuItem_Click);
+            this.foregroundColourToolStripMenuItem.Click += new System.EventHandler(this.changeForeground);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog";
+            // 
+            // fontScrollBar
+            // 
+            this.fontScrollBar.Location = new System.Drawing.Point(87, 441);
+            this.fontScrollBar.Maximum = 36;
+            this.fontScrollBar.Minimum = 8;
+            this.fontScrollBar.Name = "fontScrollBar";
+            this.fontScrollBar.Size = new System.Drawing.Size(505, 20);
+            this.fontScrollBar.TabIndex = 2;
+            this.fontScrollBar.Value = 8;
+            this.fontScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.changeFontSize);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(611, 439);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 25);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Font Size";
             // 
             // myPadForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 487);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.fontScrollBar);
             this.Controls.Add(this.mainRichTextBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -225,6 +250,8 @@
         private System.Windows.Forms.FontDialog fontDialog;
         private System.Windows.Forms.ColorDialog colorDialog;
         private System.Windows.Forms.ToolStripMenuItem foregroundColourToolStripMenuItem;
+        private System.Windows.Forms.HScrollBar fontScrollBar;
+        private System.Windows.Forms.Label label1;
     }
 }
 

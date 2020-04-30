@@ -61,10 +61,16 @@ namespace MyPad
             mainRichTextBox.BackColor = colorDialog.Color;
         }
 
-        private void foregroundColourToolStripMenuItem_Click(object sender, EventArgs e)
+        private void changeForeground(object sender, EventArgs e)
         {
             colorDialog.ShowDialog();
             mainRichTextBox.ForeColor = colorDialog.Color;
+        }
+
+        private void changeFontSize(object sender, ScrollEventArgs e)
+        {
+            Font f = new Font(mainRichTextBox.Font.Name, fontScrollBar.Value, FontStyle.Regular);
+            mainRichTextBox.SelectionFont = f;
         }
     }
 }
